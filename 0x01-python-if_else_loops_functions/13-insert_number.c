@@ -1,33 +1,46 @@
 #include "lists.h"
+#include <stdlib.h>
 
 /**
- * insert_node - Entry point.
- * @head: A pointer the head of the linked list.
- * @number: The number to insert.
- * Author - Wanjiru Kinyua
- * Return: description
+ * insert_node - Entry point
+ * @head: argument_1 description
+ * @number: argument_2 description
+ * Author: Wanjiru Kinyua
+ * Return: return description
  */
 listint_t *insert_node(listint_t **head, int number)
 {
-	listint_t *node = *head, *new;
+	listint_t *new, *current, *previous;
+	int count;
 
+	count = 0;
+	current = previous = *head;
 	new = malloc(sizeof(listint_t));
 	if (new == NULL)
 		return (NULL);
 	new->n = number;
-
-	if (node == NULL || node->n >= number)
+	new->next = *head;
+	if (*head == NULL)
 	{
-		new->next = node;
 		*head = new;
 		return (new);
 	}
-
-	while (node && node->next && node->next->n < number)
-		node = node->next;
-
-	new->next = node->next;
-	node->next = new;
-
+	while (current != NULL)
+	{
+		count++;
+		if (current->n >= number)
+		{
+			if (count == 1)
+				*head = new;
+			else
+				previous->next = new;
+			new->next = current;
+			return (new);
+		}
+		previous = current;
+		current = current->next;
+	}
+	previous->next = new;
+	new->next = NULL;
 	return (new);
 }
