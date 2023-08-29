@@ -47,7 +47,7 @@ class Node:
     @next_node.setter
     def next_node(self, next_node):
         if next_node and not isinstance(next_node, Node):
-            raise TypeError("next_node must be an integer")
+            raise TypeError("next_node must be a Node object")
         else:
             self._Node__next_node = next_node
 
@@ -60,14 +60,14 @@ class SinglyLinkedList:
         self.head = None
 
     def __str__(self):
-        res = ""
+        result = ""
         temp = self.head
-        while temp.next_node is not None:
-            res += str(temp.data)
+        while temp is not None:
+            result += str(temp.data)
             temp = temp.next_node
-            if temp.next_node is not None:
-                res += "\n"
-        return res
+            if temp is not None:
+                result += "\n"
+        return result
 
     def sorted_insert(self, value):
         """
@@ -81,7 +81,8 @@ class SinglyLinkedList:
             self.head = new_node
         else:
             temp = self.head
-            while value > temp.data and temp.next_node is not None:
+            prev = None
+            while temp is not None and value > temp.data:
                 prev = temp
                 temp = temp.next_node
             new_node.next_node = temp
