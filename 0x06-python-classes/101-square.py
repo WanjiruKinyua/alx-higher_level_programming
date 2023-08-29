@@ -41,7 +41,7 @@ class Square:
 
     @property
     def size(self):
-        """ 
+        """
         Args:
 
         Returns:
@@ -60,7 +60,7 @@ class Square:
 
     @property
     def position(self):
-        """ 
+        """
         Args:
             position (:obj: `tuple` of `int`)
 
