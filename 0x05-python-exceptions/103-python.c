@@ -1,8 +1,6 @@
-#include <Python.h>
+#include "Python.h"
 #include <stdio.h>
-#include <listobject.h>
-#include <object.h>
-#include <bytesobject.h>
+
 
 /**
  * print_python_float - gives data of the PyFloatObject
