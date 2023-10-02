@@ -58,5 +58,5 @@ def matrix_mul(m_a, m_b):
                 try:
                     result[i][j] += m_a[i][k] * m_b[k][j]
                 except Exception:
-                    ValueError("m_a and m_b can't be multiplied")
+                   raise ValueError("m_a and m_b can't be multiplied")
     return result
