@@ -1,31 +1,64 @@
-# Test cases for the add_integer function
+The ``0-add_integer`` module
+======================
 
->>> from add_integer import add_integer
+Using ``add_integer``
+-------------------
 
-# Test case 1: Adding two integers
->>> add_integer(1, 2)
+This is an example text file in reStructuredText format.  First import
+``add_integer`` from the ``0-add_integer`` module:
+
+	>>> add_integer = __import__('0-add_integer').add_integer
+
+	Now use it:
+	>>> add_integer()
+	Traceback (most recent call last):
+	...
+	TypeError: add_integer() missing 1 required positional argument: 'a'
+
+	>>> add_integer(None)
+	Traceback (most recent call last):
+	...
+	TypeError: a must be an integer
+
+	>>> add_integer(None)
+	Traceback (most recent call last):
+	...
+	TypeError: a must be an integer
+
+	>>> add_integer(1)
+	99
+
+	>>> add_integer(1.0)
+	99
+
+	>>> add_integer(1, 2)
 	3
 
-# Test case 2: Adding an integer and a negative integer
->>> add_integer(100, -2)
-	98
+	>>> add_integer(1.0, 3.0)
+	4
 
-# Test case 3: Adding an integer and the default value (98)
->>> add_integer(2)
-	100
+	>>> add_integer(1, 3.0)
+	4
 
-# Test case 4: Adding a float and a negative integer
->>> add_integer(100.3, -2)
-	98
+	>>> add_integer(1.0, 3)
+	4
 
-# Test case 5: Adding an integer and a string (should raise an exception)
-	>>> add_integer(4, "School")
+	>>> add_integer("1")
 	Traceback (most recent call last):
-		...
-			TypeError: b must be an integer
+	...
+	TypeError: a must be an integer
 
-# Test case 6: Adding None (should raise an exception)
-			>>> add_integer(None)
+	>>> add_integer("1", 3)
 	Traceback (most recent call last):
-		...
-			TypeError: a must be an integer
+	...
+	TypeError: a must be an integer
+
+	>>> add_integer(1, "string")
+	Traceback (most recent call last):
+	...
+	TypeError: b must be an integer
+
+	>>> add_integer("1", "2")
+	Traceback (most recent call last):
+	...
+	TypeError: a must be an integer
